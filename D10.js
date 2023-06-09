@@ -96,24 +96,21 @@ dice()
   Crea una funzione chiamata "whoIsBigger" che riceve due numeri come parametri e ritorna il maggiore dei due.
 */
 
-const whoIsBigger = () => {
+const whoIsBigger = (num1 ,num2) => {
 
-    const a = 10
-    const b = 15
-
-  if (a > b){
-    console.log ('A è maggiore di B')
+  if (num1 > num2){
+    console.log ('Num1 è maggiore di Num2')
   }
 
   else{
-    console.log('B è maggiore di A')
+    console.log('Num2 è maggiore di Num1')
   }
 
 
 }
 
-whoIsBigger()
-
+const result = whoIsBigger(29,20)
+console.log(result)
 
 /* ESERCIZIO 3
   Crea una funzione chiamata "splitMe" che riceve una stringa come parametro e ritorna un'array contenente ogni parola della stringa.
