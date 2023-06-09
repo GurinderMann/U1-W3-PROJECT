@@ -478,7 +478,6 @@ Trees (3)
 */
 
 
-
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
 const movies = [
