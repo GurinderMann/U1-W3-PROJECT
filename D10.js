@@ -294,7 +294,7 @@ const deleteProp= () =>{
       age:20
     }
 
-    const str = 'rossi'
+    const str = 'mario'
 
     if (obj.surname === str){
 
@@ -302,11 +302,18 @@ const deleteProp= () =>{
       console.log (obj)
 
     }
-    else {
-
+    else if (obj.name === str)  {
+      delete obj.name
+      console.log (obj)
+    }
+    else if (obj.age === str)  {
+      delete obj.age
       console.log (obj)
     }
 
+    else{
+      console.log (obj)
+    }
 }
 
 deleteProp()
@@ -356,29 +363,74 @@ deleteProp()
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
 
+
+const container = () => {
+  
+  const container = document.getElementById('container')
+  return container
+}
+
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
-
+const td = () =>{
+  const td = document.querySelectorAll('td')
+  return td
+}
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+
+const printTd = ()=>{
+
+  const td = document.querySelectorAll('td')
+  td.forEach((td) => {
+    const text = td.textContent;
+    console.log(text);
+  });
+}
+
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 
+const background =()=>{
+  const link = document.querySelectorAll ('[href]')
+  link.Style.backgroundColor = 'red'
+}
+
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+
+const newElement= () =>{
+  const list = getElementById('myList')
+  const element = document.createElement ('li')
+  element.innerText = 'Epicode'
+
+  list.appendChild(element)
+
+}
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+const empty = () =>{
+  const list = document.getElementById ('myList')
+  list.innerText = ''
+}
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+const cssClass = () =>{
+  const tr = document.querySelectorAll ('tr')
+  tr.classList.add('test')
+}
+
 
 // [EXTRA] JS Avanzato
 
@@ -394,6 +446,14 @@ deleteProp()
 
 */
 
+const tree=(n) => {
+  for (let i = 1; i <= n; i++) {
+    const stars = '*'.repeat (i);
+    console.log( stars);
+  }
+}
+tree(4)
+
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
 
@@ -405,10 +465,19 @@ deleteProp()
   *****
 
 */
-
+const Trees =(n) => {
+  for (let i = 1; i <= n; i++) {
+    const spaces = ' '.repeat(n - i);
+    const stars = '*'.repeat( i * 2 );
+    console.log(spaces + stars);
+  }
+}
+Trees (3)
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
+
+
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
@@ -642,3 +711,14 @@ function searchAndDivide(str) {
 moviesList = searchAndDivide ('Avengers')
 console.log(moviesList)
 
+// ESERCIZIO 19
+
+const removeIndex =(n) => {
+  if (n < 0 || n >= movies.length) {
+        return movies;
+  }
+  const updatedMovies = [...movies.slice(0, n), ...movies.slice(n + 1)];
+  return updatedMovies;
+}
+const updatedMovies = removeIndex(2);
+console.log(updatedMovies);
