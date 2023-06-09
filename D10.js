@@ -286,12 +286,40 @@ isTodayMyBirthday()
 */
 
 
+const deleteProp= () =>{
 
+    const obj = {
+      name: 'mario', 
+      surname: 'rossi',
+      age:20
+    }
 
+    const str = 'rossi'
+
+    if (obj.surname === str){
+
+      delete obj.surname
+      console.log (obj)
+
+    }
+    else {
+
+      console.log (obj)
+    }
+
+}
+
+deleteProp()
 
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
+
+
+
+  
+
+
 
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
@@ -499,3 +527,118 @@ const movies = [
       'https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg',
   },
 ]
+
+
+// ESERCIZIO 12
+
+
+const newestMovie = () =>{
+
+  let newest = null;
+
+  for (let i = 0; i < movies.length; i++) {
+    const movie = movies[i];
+    const movieYear = parseInt(movie.Year);
+
+    if (!isNaN(movieYear)) {
+      if (newest === null || movieYear > newest.Year) {
+        newest = movie;
+      }
+    }
+  }
+
+  return newest;
+}
+
+const newest = newestMovie(movies);
+console.log(newest);
+
+
+// ESERCIZIO 13
+
+const countMovies = ()=>{
+
+    const moviesNumber = movies.length
+    console.log(moviesNumber)
+
+}
+
+countMovies()
+
+
+// ESERCIZIO 14
+
+
+const onlyTheYears= ()=>{
+
+  const arrayYears = movies.map(movies => movies.Year)
+  console.log(arrayYears)
+
+}
+
+onlyTheYears()
+
+
+// ESERCIZIO 15
+
+const onlyInLastMillennium= ()=>{
+  const moviesLastMillennium = movies.filter(movie => {
+    const movieYear = parseInt(movie.Year);
+    return movieYear >= 2000 ;
+  });
+    return moviesLastMillennium
+  }
+
+const moviesLastMillennium = onlyInLastMillennium();
+console.log(moviesLastMillennium);
+
+
+// ESERCIZIO 16
+
+const sumAllTheYears= () =>{
+
+  const sum = movies.reduce((total,movie)=>{
+    const movieYear = parseInt(movie.Year);
+    return total + movieYear},0)
+  
+
+  console.log(sum)
+}
+
+sumAllTheYears()
+
+
+// ESERCIZIO 17
+
+const  searchByTitle =(str)=> {
+  const matchingMovies = movies.filter((movie) =>
+    movie.Title.includes(str)
+  );
+  return matchingMovies;
+}
+const search = searchByTitle('Avengers')
+console.log(search)
+
+// ESERCIZIO 18
+
+function searchAndDivide(str) {
+  const match = [];
+  const unmatch = [];
+
+  movies.forEach((movie) => {
+    if (movie.Title.includes(str)) {
+      match.push(movie.Title);
+    } else {
+      unmatch.push(movie.Title);
+    }
+  });
+
+  return {
+    match,
+    unmatch
+  };
+}
+
+moviesList = searchAndDivide ('Avengers')
+console.log(moviesList)
+
