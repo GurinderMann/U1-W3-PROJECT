@@ -163,13 +163,44 @@ deleteOne()
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 
+const onlyLetters = () =>{
+
+    const str = 'Ciao siamo in 4'
+    const str1 = str.replace(/[0-9]/g, '');
+    console.log(str1)
+
+}
+
+onlyLetters()
+
+
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
 
+const isThisAnEmail = (str) =>{
+  if (str.includes ('@') && str.includes('.com') && str.indexOf('.') > str.indexOf('@')) {
+    console.log(true)
+  }
+  else{
+    console.log(false)
+  }
+
+}
+
+isThisAnEmail('giovannimario.com')
+
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
+
+const whatDayIsIt=()=>{
+    const now = new Date()
+    const date = now.getDay()
+    console.log(date)
+}
+
+whatDayIsIt()
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
@@ -184,13 +215,66 @@ deleteOne()
   }
 */
 
+
+
+function rollTheDices(num) {
+  const result = {
+    sum: 0,
+    values: []
+  };
+
+  for (let i = 0; i < num; i++) {
+    const diceValue = Math.floor(Math.random() * 6) + 1;
+    result.values.push(diceValue);
+    result.sum += diceValue;
+  }
+
+  return result;
+}
+
+const rollResult = rollTheDices(3);
+console.log(rollResult);
+
+
+
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
 
+
+const howManyDays = () => {
+  const now = new Date()
+  const startOfYear = new Date(now.getFullYear(), 0, 1)
+  const differenceInTime = now.getTime() - startOfYear.getTime()
+  const daysPassed = Math.floor(differenceInTime / (1000 * 60 * 60 * 24))
+  console.log(daysPassed)
+}
+
+howManyDays()
+
+
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
+
+const isTodayMyBirthday= ()=>{
+
+    const now = new Date()
+    const date = now.getDate()
+    const birthday = new Date ('2023-06-09')
+    if (birthday.getDate()===date && birthday.getMonth() === now.getMonth()){
+      console.log('Today is your birthday')
+    }
+     else{
+
+      console.log('Today is not your birthday')
+     }
+    
+
+}
+
+isTodayMyBirthday()
+
 
 // Arrays & Oggetti
 
@@ -200,6 +284,10 @@ deleteOne()
   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
+
+
+
+
 
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
