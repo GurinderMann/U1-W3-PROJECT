@@ -133,11 +133,8 @@ splitMe()
   Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
 */
 
-const deleteOne = ()=>{
-
-    const str = 'Epicode'
-    const boolean = false 
-
+const deleteOne = (str,boolean)=>{
+      
     if (boolean === true ){
 
       console.log(str.slice(1))
@@ -151,8 +148,8 @@ const deleteOne = ()=>{
 
 }
 
-deleteOne()
-
+const str=deleteOne('epicode', true)
+console.log(str)
 
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
